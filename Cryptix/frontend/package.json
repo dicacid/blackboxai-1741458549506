@@ -1,0 +1,67 @@
+{
+  "name": "cryptix-frontend",
+  "version": "1.0.0",
+  "description": "Frontend application for the Cryptix Festival Ticketing Platform",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^5.16.14",
+    "@mui/material": "^5.16.14",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.5",
+    "@types/recharts": "^1.8.29",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
+    "axios": "^1.2.1",
+    "chart.js": "^4.4.8",
+    "ethers": "^5.7.2",
+    "qrcode": "^1.5.4",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.5",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.15.1",
+    "socket.io-client": "^4.5.4",
+    "web3": "^1.10.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "eslint": "^8.29.0",
+    "eslint-config-react-app": "^7.0.1",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src",
+    "format": "prettier --write src"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
