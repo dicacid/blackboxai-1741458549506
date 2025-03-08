@@ -1,0 +1,186 @@
+{
+  "name": "cryptix-smart-contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for the Cryptix Festival Ticketing Platform",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "clean": "hardhat clean && rm -rf cache artifacts typechain-types",
+    
+    "setup:testnet": "hardhat run scripts/setup-testnet.js",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "npm run analyze && hardhat run scripts/deploy-testnet.js --network sepolia",
+    "deploy:goerli": "npm run analyze && hardhat run scripts/deploy-testnet.js --network goerli",
+    
+    "verify:sepolia": "hardhat run scripts/verify-contracts.js --network sepolia",
+    "verify:goerli": "hardhat run scripts/verify-contracts.js --network goerli",
+    "test:sepolia": "hardhat run scripts/test-testnet-deployment.js --network sepolia",
+    "test:goerli": "hardhat run scripts/test-testnet-deployment.js --network goerli",
+    
+    "upgrade:prepare": "hardhat run scripts/prepare-upgrade.js",
+    "upgrade:validate": "hardhat run scripts/validate-upgrade.js",
+    "upgrade:simulate": "hardhat run scripts/simulate-upgrade.js",
+    "upgrade:sepolia": "hardhat run scripts/upgrade-contracts.js --network sepolia",
+    "upgrade:goerli": "hardhat run scripts/upgrade-contracts.js --network goerli",
+    "upgrade:verify": "npm run verify:contracts && npm run test:deployment",
+    "upgrade:full": "npm run upgrade:prepare && npm run analyze && npm run upgrade:sepolia && npm run upgrade:verify",
+    
+    "security:setup": "hardhat run scripts/utils/security-helpers.js setup",
+    "security:validate": "hardhat run scripts/utils/security-helpers.js validate",
+    "security:roles": "hardhat run scripts/utils/security-helpers.js roles",
+    "security:timelock": "hardhat run scripts/utils/security-helpers.js timelock",
+    "security:multisig": "hardhat run scripts/utils/security-helpers.js multisig",
+    "security:check": "npm run security:validate && npm run security:roles",
+    
+    "deps:analyze": "hardhat run scripts/utils/dependency-helpers.js analyze",
+    "deps:validate": "hardhat run scripts/utils/dependency-helpers.js validate",
+    "deps:graph": "hardhat run scripts/utils/dependency-helpers.js graph",
+    "deps:check": "npm run deps:analyze && npm run deps:validate",
+    
+    "backup": "hardhat run scripts/backup-contracts.js",
+    "backup:sepolia": "hardhat run scripts/backup-contracts.js --network sepolia",
+    "backup:goerli": "hardhat run scripts/backup-contracts.js --network goerli",
+    "backup:list": "ls -l backups/",
+    "backup:latest": "node -e \"require('./scripts/backup-contracts').getLatestBackup()\"",
+    "backup:compare": "node -e \"require('./scripts/backup-contracts').compareBackups()\"",
+    "backup:verify": "node -e \"require('./scripts/backup-contracts').verifyBackup()\"",
+    
+    "restore": "hardhat run scripts/restore-contracts.js",
+    "restore:sepolia": "hardhat run scripts/restore-contracts.js --network sepolia",
+    "restore:goerli": "hardhat run scripts/restore-contracts.js --network goerli",
+    "restore:list": "ls -l backups/",
+    "restore:latest": "npm run restore -- --timestamp $(npm run -s backup:latest)",
+    "restore:verify": "node -e \"require('./scripts/restore-contracts').verifyRestore()\"",
+    "restore:dry-run": "node -e \"require('./scripts/restore-contracts').dryRun()\"",
+    
+    "monitor:events": "hardhat run scripts/monitor-events.js",
+    "monitor:network": "hardhat run scripts/monitor-network.js",
+    "monitor:sepolia": "hardhat run scripts/monitor-network.js --network sepolia",
+    "monitor:goerli": "hardhat run scripts/monitor-network.js --network goerli",
+    "monitor:all": "concurrently \"npm run monitor:events\" \"npm run monitor:network\"",
+    
+    "analyze": "npm run analyze:size && npm run analyze:gas",
+    "analyze:size": "hardhat run scripts/analyze-size.js",
+    "analyze:gas": "hardhat run scripts/analyze-gas.js",
+    "analyze:full": "npm run analyze && hardhat run scripts/monitor-network.js",
+    
+    "clean:transactions": "hardhat run scripts/clean-transactions.js",
+    "node": "hardhat node",
+    "accounts": "hardhat accounts",
+    "flatten": "hardhat flatten",
+    "size": "hardhat size-contracts",
+    
+    "docs": "hardhat docgen && npx prettier --write docs/",
+    "lint": "solhint 'contracts/**/*.sol' && eslint scripts/",
+    "lint:fix": "solhint 'contracts/**/*.sol' --fix && eslint scripts/ --fix",
+    "format": "prettier --write 'contracts/**/*.sol' 'scripts/**/*.js'",
+    "gas-report": "REPORT_GAS=true hardhat test",
+    
+    "quick-start": "cat QUICK_START.md",
+    "guide": "cat TESTNET_DEPLOYMENT.md",
+    "upgrade:guide": "cat UPGRADE_GUIDE.md",
+    
+    "prepare": "husky install",
+    "precommit": "npm run lint && npm run format",
+    "verify:contracts": "hardhat run scripts/verify-contracts.js",
+    "generate:types": "hardhat typechain",
+    
+    "testnet:full": "npm run setup:testnet && npm run analyze && npm run deploy:sepolia && npm run verify:sepolia && npm run test:sepolia",
+    "testnet:monitor": "concurrently \"npm run monitor:events\" \"npm run monitor:network\"",
+    "testnet:analyze": "concurrently \"npm run analyze:size\" \"npm run analyze:gas\"",
+    
+    "upgrade:backup": "npm run backup && npm run upgrade:prepare",
+    "upgrade:restore": "npm run restore:latest",
+    "upgrade:rollback": "npm run restore -- --timestamp",
+    
+    "postinstall": "npm run compile && npm run generate:types",
+    
+    "report:gas": "REPORT_GAS=true npx hardhat test",
+    "report:coverage": "npx hardhat coverage",
+    "report:size": "npx hardhat size-contracts",
+    "report:slither": "slither .",
+    "report:mythril": "myth analyze contracts/**/*.sol",
+    
+    "validate:upgrade": "hardhat run scripts/validate-upgrade.js",
+    "simulate:upgrade": "hardhat run scripts/simulate-upgrade.js",
+    "backup:contracts": "hardhat run scripts/backup-contracts.js",
+    "restore:contracts": "hardhat run scripts/restore-contracts.js",
+    
+    "generate:docs": "npm run docs && npm run format:docs",
+    "format:docs": "prettier --write 'docs/**/*.md'",
+    "audit:full": "npm run report:coverage && npm run report:gas && npm run report:size && npm run report:slither",
+    
+    "upgrade:check": "npm run security:check && npm run deps:check && npm run upgrade:validate",
+    "upgrade:safe": "npm run upgrade:check && npm run upgrade:backup && npm run upgrade:simulate",
+    "upgrade:secure": "npm run upgrade:safe && npm run security:timelock && npm run upgrade:full"
+  },
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "hardhat",
+    "solidity",
+    "ticketing",
+    "nft",
+    "blockchain",
+    "web3",
+    "upgradeable-contracts",
+    "timelock",
+    "multisig"
+  ],
+  "author": "Cryptix Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "@openzeppelin/hardhat-upgrades": "^1.28.0",
+    "@openzeppelin/upgrades-core": "^1.28.0",
+    "@typechain/ethers-v5": "^10.2.1",
+    "@typechain/hardhat": "^6.1.6",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.5.0",
+    "chai": "^4.3.7",
+    "cli-table3": "^0.6.3",
+    "concurrently": "^8.2.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "ethereum-waffle": "^4.0.10",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.17.1",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-deploy": "^0.11.34",
+    "hardhat-gas-reporter": "^1.0.9",
+    "hardhat-docgen": "^1.3.0",
+    "hardhat-tracer": "^2.6.0",
+    "hardhat-ethernal": "^3.2.5",
+    "husky": "^8.0.3",
+    "node-fetch": "^2.6.12",
+    "prettier": "^3.0.2",
+    "prettier-plugin-solidity": "^1.1.3",
+    "solhint": "^3.6.2",
+    "solhint-plugin-prettier": "^0.0.5",
+    "solidity-coverage": "^0.8.4",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.3.1",
+    "typescript": "^5.1.6",
+    "@gnosis.pm/safe-contracts": "^1.3.0",
+    "@openzeppelin/defender-admin-client": "^1.47.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "@openzeppelin/defender-sdk": "^1.47.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  }
+}
