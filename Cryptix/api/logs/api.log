@@ -1,0 +1,42 @@
+2025-02-25 02:53:23,928 - WARNING - 404 Error: http://p3msvn-5000.csb.app/
+2025-02-25 02:53:24,857 - WARNING - 404 Error: http://p3msvn-5000.csb.app/favicon.ico
+2025-02-25 02:53:26,405 - WARNING - 404 Error: http://p3msvn-5000.csb.app/
+2025-02-25 02:53:31,490 - INFO - Health check endpoint accessed
+2025-02-25 02:53:31,687 - WARNING - 404 Error: http://localhost:5000/favicon.ico
+2025-02-25 02:54:20,445 - INFO - Request logged: {'method': 'GET', 'url': 'http://localhost:5000/log', 'headers': {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Chromium";v="135", "Not-A.Brand";v="8"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Linux"', 'Accept-Language': 'en-US,en;q=0.9', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br, zstd'}, 'timestamp': '2025-02-25T02:54:20.445306', 'remote_addr': '127.0.0.1'}
+2025-02-25 02:54:20,468 - WARNING - 404 Error: http://localhost:5000/favicon.ico
+2025-02-25 02:55:06,646 - INFO - Health check endpoint accessed
+2025-02-25 02:58:33,689 - WARNING - 404 Error: http://p3msvn-5000.csb.app/
+2025-02-25 02:59:03,626 - WARNING - 404 Error: http://p3msvn-5000.csb.app/
+2025-02-25 03:00:34,302 - INFO - API documentation accessed
+2025-02-25 03:00:34,328 - WARNING - 404 Error: http://localhost:5000/favicon.ico
+2025-02-25 03:00:39,595 - INFO - API documentation accessed
+2025-02-25 03:02:12,177 - INFO - API documentation accessed
+2025-02-25 03:02:12,210 - WARNING - 404 Error: http://localhost:5000/favicon.ico
+2025-02-25 03:02:32,766 - INFO - Health check endpoint accessed
+2025-02-25 03:02:32,796 - WARNING - 404 Error: http://localhost:5000/favicon.ico
+2025-02-25 03:03:23,582 - INFO - Request logged: {'method': 'GET', 'url': 'http://localhost:5000/log', 'headers': {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Chromium";v="135", "Not-A.Brand";v="8"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Linux"', 'Accept-Language': 'en-US,en;q=0.9', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br, zstd'}, 'timestamp': '2025-02-25T03:03:23.582222', 'remote_addr': '127.0.0.1'}
+2025-02-25 03:03:23,609 - WARNING - 404 Error: http://localhost:5000/favicon.ico
+2025-02-25 04:22:14,977 - INFO - API documentation accessed
+2025-02-25 04:22:16,027 - WARNING - 404 Error: http://p3msvn-5001.csb.app/favicon.ico
+2025-02-25 04:22:34,567 - INFO - API documentation accessed
+2025-02-25 04:22:34,756 - WARNING - 404 Error: http://localhost:5001/favicon.ico
+2025-02-25 04:22:43,260 - INFO - API documentation accessed
+2025-02-25 04:24:12,497 - INFO - API documentation accessed
+2025-02-25 04:25:08,669 - INFO - API documentation accessed
+2025-02-25 04:25:08,709 - WARNING - 404 Error: http://localhost:5001/favicon.ico
+2025-02-25 04:25:17,077 - INFO - API documentation accessed
+2025-02-25 04:26:03,751 - INFO - Health check endpoint accessed
+2025-02-25 04:26:03,778 - WARNING - 404 Error: http://localhost:5001/favicon.ico
+2025-02-25 04:27:06,729 - INFO - Request logged: {'method': 'GET', 'url': 'http://localhost:5001/log', 'headers': {'Host': 'localhost:5001', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Chromium";v="135", "Not-A.Brand";v="8"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Linux"', 'Accept-Language': 'en-US,en;q=0.9', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br, zstd'}, 'timestamp': '2025-02-25T04:27:06.729734', 'remote_addr': '127.0.0.1'}
+2025-02-25 04:27:06,762 - WARNING - 404 Error: http://localhost:5001/favicon.ico
+2025-02-25 04:38:32,399 - INFO - API documentation accessed
+2025-02-25 04:38:32,402 - INFO - Health check endpoint accessed
+2025-02-25 04:38:32,404 - INFO - Request logged: {'method': 'GET', 'url': 'http://localhost:5001/log', 'headers': {'Host': 'localhost:5001', 'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}, 'timestamp': '2025-02-25T04:38:32.404601', 'remote_addr': '127.0.0.1'}
+2025-02-25 04:38:32,406 - INFO - Request logged: {'method': 'POST', 'url': 'http://localhost:5001/log', 'headers': {'Host': 'localhost:5001', 'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '119'}, 'timestamp': '2025-02-25T04:38:32.406821', 'remote_addr': '127.0.0.1', 'body': {'event': 'test_event', 'timestamp': '2025-02-25T04:38:32.405663', 'data': {'user': 'test_user', 'action': 'api_test'}}}
+2025-02-25 05:06:21,644 - INFO - API documentation accessed
+2025-02-25 05:06:22,311 - WARNING - 404 Error: http://p3msvn-5001.csb.app/favicon.ico
+2025-02-25 12:55:15,071 - INFO - API documentation accessed
+2025-02-25 12:55:26,686 - INFO - API documentation accessed
+2025-02-25 13:33:50,671 - INFO - API documentation accessed
+2025-02-25 13:33:56,833 - INFO - API documentation accessed
