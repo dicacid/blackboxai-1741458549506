@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongodb:27017/cryptix
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - mongodb
+      - redis
+      - blockchain
+    networks:
+      - cryptix-network
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - cryptix-network
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - cryptix-network
+
+  blockchain:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["npx", "hardhat", "node"]
+    ports:
+      - "8545:8545"
+    networks:
+      - cryptix-network
+
+  analytics:
+    build: .
+    command: ["node", "analytics/RealTimeAnalytics.js"]
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    networks:
+      - cryptix-network
+
+  fraud-detection:
+    build: .
+    command: ["node", "AI/fraud_detection/FraudDetectionSystem.js"]
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/cryptix
+    depends_on:
+      - mongodb
+    networks:
+      - cryptix-network
+
+  recommendation:
+    build: .
+    command: ["node", "AI/recommendation/RecommendationEngine.js"]
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/cryptix
+    depends_on:
+      - mongodb
+    networks:
+      - cryptix-network
+
+  flask-api:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./api:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+    networks:
+      - cryptix-network
+    depends_on:
+      - mongodb
+      - redis
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  cryptix-network:
+    driver: bridge
